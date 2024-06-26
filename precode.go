@@ -105,8 +105,8 @@ func deleteTask(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
 	delete(tasks, id)
+	w.WriteHeader(http.StatusOK)
 
 }
 
@@ -126,4 +126,5 @@ func main() {
 		fmt.Printf("Ошибка при запуске сервера: %s", err.Error())
 		return
 	}
+
 }
